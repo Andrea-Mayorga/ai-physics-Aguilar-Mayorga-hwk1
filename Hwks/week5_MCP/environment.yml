@@ -1,0 +1,12 @@
+# Minimum environment for running mcp_server_week05_Aguilar_Mayorga.py 
+# and week05_Aguilar_Mayorga.ipynb
+# Versions tested on 2026-10-07 on macOS (Apple Silicon)
+# Claude model used in week05_Aguilar_Mayorga.ipynb: claude-sonnet-5-5
+name: mcp-physics
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.16
+  - pip
+  - pip:
+      - -r requirements.txt

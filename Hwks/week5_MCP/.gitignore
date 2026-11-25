@@ -1,0 +1,6 @@
+.env
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+*.log
+MCP - protocolo, recursos, herramientas y schemas.md

@@ -1,0 +1,10 @@
+# Tested with Python 3.11.16
+mcp==2.2.0
+astroquery==0.4.11
+astropy==8.0.1
+arxiv==4.0.1
+anthropic==1.8.0
+python-dotenv==1.2.3
+numpy==2.4.6
+pydantic==2.13.5
+ipykernel==7.3.0
