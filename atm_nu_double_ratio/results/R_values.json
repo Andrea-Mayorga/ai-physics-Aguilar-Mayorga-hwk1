@@ -1,0 +1,203 @@
+{
+  "description": "Layer C (code only, no AI): double ratio R = (mu/e)_data / (mu/e)_prediction from Super-K unfolded spectra and HKKM2014.",
+  "inputs_sha256": {
+    "honda2014_kamioka_cosz20_solmin.d.gz": "c710db5515afd1e4d93b4a247fd2d8e1c03136ca8c8262b9dee21b35093c969d",
+    "sk_nue_flux.csv": "fd04af108b223dc76ff74f915eb9dc5d361d36466821bcf8659a4da5ec20fdd2",
+    "sk_numu_flux.csv": "1569b7db9332b6dcf3fbbeedd9c6c2e290fb3c94993124a12fcbc2ff61265fac"
+  },
+  "nue_sanity_ratio_per_bin": [
+    1.0290660771894187,
+    1.0540611951453505,
+    1.038197898324793,
+    1.006198129963287,
+    0.9921471383447459,
+    0.9310019761834454,
+    0.9268726084921334,
+    0.8686028500231591,
+    0.891198667972849,
+    0.917827490047024,
+    0.9444671948126716
+  ],
+  "samples": {
+    "multi-GeV": {
+      "flux": {
+        "R": 0.695438305312156,
+        "error_full": {
+          "R": 0.17171244263031296,
+          "exclusion_of_R1_sigma": 1.773672833619564,
+          "nue_data": 0.0008374998517120092,
+          "numu_data": 0.0013591278716590738
+        },
+        "error_none": {
+          "R": 0.09203465181713133,
+          "exclusion_of_R1_sigma": 3.3092067897751627,
+          "nue_data": 0.00044983171178197286,
+          "numu_data": 0.0007269709713635512
+        },
+        "integrals": {
+          "nue_data": 0.0048325658330787245,
+          "nue_pred": 0.00513630092622936,
+          "numu_data": 0.007727838627619845,
+          "numu_pred": 0.011810604253659178,
+          "ratio_data_mu_over_e": 1.5991170931853822,
+          "ratio_pred_mu_over_e": 2.2994377516602267
+        },
+        "k": 0,
+        "range_requested_gev": [
+          1.33,
+          30.0
+        ],
+        "range_used_gev": {
+          "nue": [
+            1.33,
+            30.0
+          ],
+          "numu": [
+            1.33,
+            30.0
+          ]
+        },
+        "weighting": "flux"
+      },
+      "pull_vs_published_sigma_weighting": {
+        "Kamiokande 1994": {
+          "full": 0.6487851789243376,
+          "none": 0.9992030421508432
+        },
+        "Super-K 2005": {
+          "full": 0.0040126871050776515,
+          "none": 0.006202102894550533
+        }
+      },
+      "sigma": {
+        "R": 0.7011906917943732,
+        "error_full": {
+          "R": 0.172199839838516,
+          "exclusion_of_R1_sigma": 1.7352473061870526,
+          "nue_data": 0.0021938611633500957,
+          "numu_data": 0.003788015636828823
+        },
+        "error_none": {
+          "R": 0.07747556596709052,
+          "exclusion_of_R1_sigma": 3.856819946724271,
+          "nue_data": 0.0009950071132994664,
+          "numu_data": 0.0016902851533353344
+        },
+        "integrals": {
+          "nue_data": 0.012596911576570422,
+          "nue_pred": 0.013609024737009541,
+          "numu_data": 0.0218776671475994,
+          "numu_pred": 0.033707596843990176,
+          "ratio_data_mu_over_e": 1.7367484890733602,
+          "ratio_pred_mu_over_e": 2.4768561667995845
+        },
+        "k": 1,
+        "range_requested_gev": [
+          1.33,
+          30.0
+        ],
+        "range_used_gev": {
+          "nue": [
+            1.33,
+            30.0
+          ],
+          "numu": [
+            1.33,
+            30.0
+          ]
+        },
+        "weighting": "sigma"
+      }
+    },
+    "sub-GeV": {
+      "flux": {
+        "R": 0.5718203382464078,
+        "error_full": {
+          "R": 0.14116797096012806,
+          "exclusion_of_R1_sigma": 3.03312188197795,
+          "nue_data": 0.012634027155561077,
+          "numu_data": 0.00979880096758907
+        },
+        "error_none": {
+          "R": 0.07993133724143398,
+          "exclusion_of_R1_sigma": 5.356843467541,
+          "nue_data": 0.006756532912727542,
+          "numu_data": 0.005810587196621719
+        },
+        "integrals": {
+          "nue_data": 0.074421106857067,
+          "nue_pred": 0.0719869865261397,
+          "numu_data": 0.05466834209316736,
+          "numu_pred": 0.09247709402718782,
+          "ratio_data_mu_over_e": 0.7345811477671683,
+          "ratio_pred_mu_over_e": 1.2846362723296911
+        },
+        "k": 0,
+        "range_requested_gev": [
+          0.1,
+          1.33
+        ],
+        "range_used_gev": {
+          "nue": [
+            0.1585,
+            1.33
+          ],
+          "numu": [
+            0.2512,
+            1.33
+          ]
+        },
+        "weighting": "flux"
+      },
+      "pull_vs_published_sigma_weighting": {
+        "Kamiokande 1994": {
+          "full": 0.03018548738749931,
+          "none": 0.04824694733703824
+        },
+        "Super-K 2005": {
+          "full": 0.4299737483387609,
+          "none": 0.8002401548344001
+        }
+      },
+      "sigma": {
+        "R": 0.5952363821053587,
+        "error_full": {
+          "R": 0.14093785310787205,
+          "exclusion_of_R1_sigma": 2.871929783014648,
+          "nue_data": 0.0047599854986129266,
+          "numu_data": 0.004883583142997438
+        },
+        "error_none": {
+          "R": 0.0686106281387372,
+          "exclusion_of_R1_sigma": 5.8994302905399865,
+          "nue_data": 0.0021785086828733035,
+          "numu_data": 0.0025048158681154693
+        },
+        "integrals": {
+          "nue_data": 0.02882071856028451,
+          "nue_pred": 0.0280516552864494,
+          "numu_data": 0.028783942898523485,
+          "numu_pred": 0.04706678187524584,
+          "ratio_data_mu_over_e": 0.9987239852578935,
+          "ratio_pred_mu_over_e": 1.6778611242232777
+        },
+        "k": 1,
+        "range_requested_gev": [
+          0.1,
+          1.33
+        ],
+        "range_used_gev": {
+          "nue": [
+            0.1585,
+            1.33
+          ],
+          "numu": [
+            0.2512,
+            1.33
+          ]
+        },
+        "weighting": "sigma"
+      }
+    }
+  }
+}
