@@ -3,3 +3,6 @@ __pycache__/
 .pytest_cache/
 *.pyc
 .DS_Store
+data/cache/
+*.part
+.ipynb_checkpoints/

@@ -1,0 +1,97 @@
+{
+  "generated_utc": "2026-11-26T00:09:56+00:00",
+  "pipeline": "atmflux.data_pipeline_aguilar_mayorga",
+  "code_version": {
+    "commit": "be50e122621c2317b2f4b9cb7ee3cbc1e11bc33c",
+    "uncommitted_changes_in_project": true
+  },
+  "environment": {
+    "python": "3.11.16",
+    "tenacity": "9.2.1",
+    "platform": "macOS-26.6.2"
+  },
+  "refresh_requested": true,
+  "cache": {
+    "raw": "data/ (files verified against data/provenance.json)",
+    "normalized": "data/cache/atmflux_cache.sqlite",
+    "table": "measurements",
+    "unit": "GeV cm^-2 s^-1 sr^-1"
+  },
+  "missing_field_sentinel": "NaN in Python, NULL in SQLite; field names listed in column 'missing'",
+  "retry_policy": {
+    "retries": 3,
+    "backoff": "exponential, 1 s doubling, max 30 s",
+    "retried_errors": "timeout, connection error, HTTP 429, HTTP 5xx"
+  },
+  "datasets": [
+    {
+      "dataset": "sk_numu",
+      "file": "data/sk_numu_flux.csv",
+      "source_url": "https://www.hepdata.net/download/table/ins1401192/Table%202/1/csv",
+      "source": "Super-K (HEPData)",
+      "reference": "Richard et al. (Super-Kamiokande), Phys. Rev. D 94, 052001 (2016); HEPData DOI 10.17182/hepdata.76912.v1",
+      "version": "HEPData record ins1401192, version 1, Table 2",
+      "sha256": "1569b7db9332b6dcf3fbbeedd9c6c2e290fb3c94993124a12fcbc2ff61265fac",
+      "access": {
+        "status": "downloaded",
+        "accessed_utc": "2026-11-26T00:09:53+00:00",
+        "bytes": 986
+      },
+      "transformations": [
+        "drop '#' metadata lines and the header row",
+        "bin edges log10(E/GeV) -> GeV (10**x); bin centre kept as e_gev = 10**logE",
+        "E^2 Phi kept as published (GeV cm^-2 s^-1 sr^-1, nu + nubar combined)",
+        "total error: percent -> absolute (err% / 100 * E^2 Phi); 'error +' is used and checked to equal |error -| in every row (a warning is logged otherwise)",
+        "missing or empty field -> NaN sentinel (NULL in SQLite) + warning with source URL"
+      ],
+      "rows_in_cache": 12,
+      "rows_with_missing_fields": 0
+    },
+    {
+      "dataset": "sk_nue",
+      "file": "data/sk_nue_flux.csv",
+      "source_url": "https://www.hepdata.net/download/table/ins1401192/Table%201/1/csv",
+      "source": "Super-K (HEPData)",
+      "reference": "Richard et al. (Super-Kamiokande), Phys. Rev. D 94, 052001 (2016); HEPData DOI 10.17182/hepdata.76912.v1",
+      "version": "HEPData record ins1401192, version 1, Table 1",
+      "sha256": "fd04af108b223dc76ff74f915eb9dc5d361d36466821bcf8659a4da5ec20fdd2",
+      "access": {
+        "status": "downloaded",
+        "accessed_utc": "2026-11-26T00:09:53+00:00",
+        "bytes": 942
+      },
+      "transformations": [
+        "drop '#' metadata lines and the header row",
+        "bin edges log10(E/GeV) -> GeV (10**x); bin centre kept as e_gev = 10**logE",
+        "E^2 Phi kept as published (GeV cm^-2 s^-1 sr^-1, nu + nubar combined)",
+        "total error: percent -> absolute (err% / 100 * E^2 Phi); 'error +' is used and checked to equal |error -| in every row (a warning is logged otherwise)",
+        "missing or empty field -> NaN sentinel (NULL in SQLite) + warning with source URL"
+      ],
+      "rows_in_cache": 11,
+      "rows_with_missing_fields": 0
+    },
+    {
+      "dataset": "honda",
+      "file": "data/honda2014_kamioka_cosz20_solmin.d.gz",
+      "source_url": "http://www-rccn.icrr.u-tokyo.ac.jp/mhonda/public/nflx2014/kam-ally-20-01-solmin.d.gz",
+      "source": "Honda HKKM2014 (ICRR)",
+      "reference": "Honda et al., Phys. Rev. D 92, 023004 (2015), HKKM2014, Kamioka without mountain, azimuth-averaged, solar minimum",
+      "version": "HKKM2014, Kamioka, no mountain, azimuth-averaged, 20 cos(zenith) blocks, solar minimum",
+      "sha256": "c710db5515afd1e4d93b4a247fd2d8e1c03136ca8c8262b9dee21b35093c969d",
+      "access": {
+        "status": "downloaded",
+        "accessed_utc": "2026-11-26T00:09:54+00:00",
+        "bytes": 36857
+      },
+      "transformations": [
+        "split into 20 cos(zenith) blocks from the 'average flux in [cosZ = a -- b ...]' headers",
+        "one row per (block, energy, flavour); nu and nubar kept separate",
+        "Phi (m^2 s sr GeV)^-1 -> E^2 Phi in GeV cm^-2 s^-1 sr^-1 (multiply by E^2 and by 1e-4)",
+        "no per-point error is published: error = NULL (not a sentinel)",
+        "missing or non-numeric field -> NaN sentinel (NULL in SQLite) + warning with source URL"
+      ],
+      "rows_in_cache": 8080,
+      "rows_with_missing_fields": 0
+    }
+  ]
+}

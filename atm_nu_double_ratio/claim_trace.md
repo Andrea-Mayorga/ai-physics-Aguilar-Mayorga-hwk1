@@ -1,6 +1,6 @@
 # Claim trace
 
-Every quantitative claim in `README.md` → the output that produces it. All outputs come from `make reproduce` (module `atmflux.reproduce`) unless stated otherwise. JSON paths refer to `results/R_values.json`; `S` stands for `samples.<sample>`.
+Every quantitative claim in `README.md` and in the lab notebook → the output that produces it. All outputs come from `make reproduce` (module `atmflux.reproduce`) unless stated otherwise. JSON paths refer to `results/R_values.json`; `S` stands for `samples.<sample>`.
 
 | # | Claim (README) | Value | Output file → key | Produced by | Checked by test |
 |---|---|---|---|---|---|
@@ -19,6 +19,11 @@ Every quantitative claim in `README.md` → the output that produces it. All out
 | 13 | Input files match their published hashes | SHA-256 in `data/provenance.json` | `inputs_sha256`; `run_log.jsonl`, step `verify_inputs` | `reproduce.verify_inputs` | `test_corrupted_input_is_rejected` |
 | 14 | Output is deterministic | SHA-256 of `R_values.json` in README | `results/R_values.json` | `reproduce.run` | `test_output_is_deterministic` |
 | 15 | Figure C vs P | — | `results/R_comparison.pdf` | `proposal_figure.main(bracket=True)` | — (visual) |
+| 16 | Two external sources, three datasets, downloaded again on 2026-11-25 and byte-identical to the 2026-10-13 copies | status `downloaded`, same SHA-256 | `provenance_aguilar_mayorga.json` → `datasets[].access.status`, `datasets[].sha256` | `data_pipeline_aguilar_mayorga.run(refresh=True)` (`make pipeline-refresh`) | `test_corrupt_download_is_rejected_and_cache_kept` (a different hash is rejected) |
+| 17 | SQLite cache: 12 + 11 Super-K bins, 8080 Honda rows (20 blocks × 101 energies × 4 flavours), 0 missing fields | — | `provenance_aguilar_mayorga.json` → `rows_in_cache`, `rows_with_missing_fields`; `data/cache/atmflux_cache.sqlite` | `data_pipeline_aguilar_mayorga.write_cache` | `test_cache_matches_the_readers_used_by_layer_c` |
+| 18 | 3 retries with exponential backoff; missing field → NaN sentinel, never 0 | — | `provenance_aguilar_mayorga.json` → `retry_policy`, `missing_field_sentinel` | `data_pipeline_aguilar_mayorga.fetch`, `_number` | `test_gives_up_after_three_retries`, `test_missing_field_becomes_logged_sentinel` |
+| 19 | R_C for the 5 A₀ requests (incl. 0.1–30 GeV, σ: 0.631) | — | `results/a0_baseline.json` → `requests[].R_C`; also `python -m atmflux.baseline_a0 --dry-run` | `baseline_a0.reference_values` | — (same functions as claim 1) |
+| 20 | A₀: 0/15 within 2 %; all 15 `estimated`; 13 answers in 0.87–1.00, the 2 that assume oscillated spectra give 0.69 and 0.72; R_err covers the difference in only 1/15; 8,619 + 67,036 tokens; SDK 1.6.0 | — | `results/a0_baseline.json` → `requests[].runs[].R_A0`, `rel_diff`, `final_json.source_of_numbers`, `final_json.assumptions`, `final_json.R_err`, `usage`; `anthropic_sdk` | `baseline_a0.main` (`make baseline`); table in notebook section 4 | `test_parse_final_json_takes_the_last_block` (parsing only; model output is not testable) |
 
 **Published values (layer P)** quoted in the README and used for the pulls are hard-coded in `src/atmflux/proposal_figure.py` (`PUBLISHED`), transcribed from PDG 2026, ID S067DU0. They are inputs to the C-vs-P check only and are never available to the AI agent.
 
