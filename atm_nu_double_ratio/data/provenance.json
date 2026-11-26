@@ -1,0 +1,23 @@
+[
+  {
+    "file": "sk_numu_flux.csv",
+    "source": "https://www.hepdata.net/download/table/ins1401192/Table%202/1/csv",
+    "reference": "Richard et al. (Super-Kamiokande), Phys. Rev. D 94, 052001 (2016); HEPData DOI 10.17182/hepdata.76912.v1",
+    "accessed": "2026-10-13",
+    "sha256": "1569b7db9332b6dcf3fbbeedd9c6c2e290fb3c94993124a12fcbc2ff61265fac"
+  },
+  {
+    "file": "sk_nue_flux.csv",
+    "source": "https://www.hepdata.net/download/table/ins1401192/Table%201/1/csv",
+    "reference": "Richard et al. (Super-Kamiokande), Phys. Rev. D 94, 052001 (2016); HEPData DOI 10.17182/hepdata.76912.v1",
+    "accessed": "2026-10-13",
+    "sha256": "fd04af108b223dc76ff74f915eb9dc5d361d36466821bcf8659a4da5ec20fdd2"
+  },
+  {
+    "file": "honda2014_kamioka_cosz20_solmin.d.gz",
+    "source": "http://www-rccn.icrr.u-tokyo.ac.jp/mhonda/public/nflx2014/kam-ally-20-01-solmin.d.gz",
+    "reference": "Honda et al., Phys. Rev. D 92, 023004 (2015), HKKM2014, Kamioka without mountain, azimuth-averaged, solar minimum",
+    "accessed": "2026-10-13",
+    "sha256": "c710db5515afd1e4d93b4a247fd2d8e1c03136ca8c8262b9dee21b35093c969d"
+  }
+]

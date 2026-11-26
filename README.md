@@ -4,6 +4,8 @@
 **Student:** Andrea Aguilar Mayorga  
 **Institution:** University of Manitoba
 
+> **Final project → [`atm_nu_double_ratio/`](atm_nu_double_ratio/README.md)**: *Reproducing the atmospheric-neutrino anomaly from public data, with and without AI*. One-command reproduction: `cd atm_nu_double_ratio && make reproduce`.
+
 ## Contains:
 
 * README: explaining a general overview of the repository

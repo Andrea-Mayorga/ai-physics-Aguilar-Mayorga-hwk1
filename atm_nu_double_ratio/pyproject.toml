@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atmflux"
+version = "0.1.0"
+description = "Compare the HKKM2014 atmospheric neutrino flux with the Super-Kamiokande measured spectrum"
+requires-python = ">=3.11"
+dependencies = ["numpy", "scipy", "matplotlib", "tenacity", "anthropic", "python-dotenv"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
